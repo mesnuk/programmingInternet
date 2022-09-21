@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+
+
+    <script>
+        const p = document.createElement('p');
+        p.textContent += ('Совтус Андрій Андрійович');
+        document.body.append(p);
+
+        const button = document.createElement('button');
+        button.textContent += 'birthday';
+
+        const info = '21.07.2004, Ivano-Frankivsk';
+        button.setAttribute('onClick', 'alert(`${info}`)');
+        document.body.append(button);
+    </script>
+</body>
+</html>

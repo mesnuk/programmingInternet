@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+    <button onClick="send()">click</button>
+
+    <script>
+        function send() {
+            let numbers = prompt('Введіть х, у, z', '10 20 30');
+            const[x, y, z] = numbers.split(' ').map(a => +a);
+            alert(x**(y**z) - 2*x*z);
+        }
+    </script>
+</body>
+</html>

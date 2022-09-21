@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+
+</head>
+<body>
+    <form>
+        x<input type="number" value="1"><br>
+        y<input type="number" value="2"><br>
+        <button onClick = "calc(4, 6)">Розрахувати</button>
+    </form>
+
+
+    <script>
+        function factorial(number) {
+            return !number ? 1 : number*factorial(--number);
+        }
+        function evaluate(i, x, y) {
+            return ((-1) ** (i + 1)) * (i + 3) / factorial(x + y);
+        }
+
+        function calc(start = 1, end = 12) {
+            let sum = 0;
+            const [x, y] = Array.from(document.getElementsByTagName("input")).map(el => +el.value);
+
+            for (let i = start; i < end; ++i) sum += evaluate(i, x, y);
+
+            alert(sum);
+        }
+    </script>
+</body>
+</html>

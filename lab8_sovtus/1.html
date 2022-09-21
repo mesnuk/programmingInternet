@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+    <button>Change text (.html())</button>
+    <button>Change style (.css())</button>
+    <button>Change text (.val())</button>
+    <br><input type="text"><br>
+    <button>Імя атрибута(.attr())</button>
+    <button>ім'я атрибута, значення (.attr())</button>
+    <button>атрибути .attr())</button>
+    <button>ім'я атрибута, функція .attr())</button>
+    <button>видалити атрибут .removeAttr())</button>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const btns = $('button');
+        $(btns[0]).click(
+            function () {
+                $(this).html('MAMA <b>I`M CRIMINAL</b>')
+            }
+        )
+        $(btns[1]).click(
+            function () {
+                $(this).css({'backgroundColor' : '#000', 'color':'#fff', 'padding':'5px'});
+            }
+        )
+        $(btns[2]).click(
+            function () {
+                $('input:text').val('MAMA I`M CRIMINAL');
+            }
+        )
+        $(btns[3]).click(
+            function () {
+                $('input:text').val($('input:text').attr('type'));
+            }
+        )
+        $(btns[4]).click(
+            function () {
+                $('input:text').attr('title', 'Test attr()')
+            }
+        )
+        $(btns[5]).click(
+            function () {
+                $('input:text').attr({
+                    readOnly : "false",
+                    title: "changed again"
+                })
+            }
+        )
+        $(btns[6]).click(
+            function () {
+                $('input:text').attr("title", function() {
+                    return 'changed by func';
+                })
+            }
+        )
+        $(btns[7]).click(
+            function () {
+                $('input:text').removeAttr('readonly')
+            }
+        )
+    </script>
+
+</body>
+</html>

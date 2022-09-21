@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <style>
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <form id="display" style="display: none">
+        <fieldset class="choose">
+            <h1>Ви любите тварин?</h1>
+            Так<input type="radio"
+                   name="firstQ" value="vegetable">
+
+            Ні<input type="radio"
+                   name="firstQ" value="meat">
+        </fieldset>
+        <fieldset class="choose">
+            <h1>Ви любите овочі?</h1>
+            Так<input type="radio" class="yes"
+                      name="secondQ" value="vegetable">
+
+            Ні<input type="radio"
+                     name="secondQ" value="meat">
+        </fieldset>
+
+        <fieldset class="choose">
+            <h1>Що ви б з'їли? Оберіть дві відповіді.</h1>
+            Полуниця<input type="checkbox" name="thirdQ" value="vegetable">
+            Стейк<input type="checkbox" name="thirdQ" value="meat">
+            Овочевий салат<input type="checkbox" name="thirdQ" value="vegetable">
+            Жилудки<input type="checkbox" name="thirdQ" value="meat">
+        </fieldset>
+        <fieldset class="choose">
+            <h1>Улюблені кольори? Оберіть дві відповіді.</h1>
+            Зелений<input type="checkbox" name="fourQ" value="vegetable">
+            Червоний<input type="checkbox" name="fourQ" value="meat">
+            Жовтий<input type="checkbox" name="fourQ" value="vegetable">
+            Чорний<input type="checkbox" name="fourQ" value="meat">
+        </fieldset>
+
+
+        <fieldset class="info">
+            <h1>Вкажіть своє ім'я</h1>
+            <input type="text" name="fiveQ">
+        </fieldset>
+        <fieldset class="info">
+            <h1>Вкажіть свій номер телефону</h1>
+            <input type="number" name="sixQ">
+        </fieldset>
+    </form>
+        <button id="end" style="display: none; margin: auto">finish</button>
+        <button id="show">start</button>
+    <script>
+        const btnShow = document.querySelector('#show');
+        const btnResult = document.querySelector('#end');
+
+        btnShow.addEventListener('click', () => {
+            document.querySelector('#display').style.display = 'block';
+            document.querySelector('#show').style.display = 'none';
+            btnResult.style.display = 'block';
+        });
+
+        function getSelected() {
+            return document.querySelectorAll('.choose input:checked');
+        }
+
+        function getPrivateInfo() {
+            return document.querySelectorAll('.info input');
+        }
+        function getValues(inputs) {
+            return Array.from(inputs, inp => inp.value);
+        }
+        function getResult(array){
+            return (array.length-2 < array.filter(el => el === 'vegetable').length) ? 'Схоже ви вегетаріанець' : `Ви вегетаріанець на ${array.filter(el => el === 'vegetable').length*20}%`;
+        }
+        btnResult.addEventListener('click', () => {
+            const selected = getValues(getSelected());
+            const [name, phone] = getValues(getPrivateInfo());
+
+
+            document.querySelector('#display').style.display = 'none';
+            btnResult.style.display = 'none';
+
+
+            const result = document.createElement('div');
+            result.innerHTML = `<h1>Результат</h1>Імя: ${name}<br>Телефон: ${phone}<br>${getResult(selected)}`;
+            result.style.margin = 'auto';
+            document.body.prepend(result);
+        });
+    </script>
+</body>
+
+</html>

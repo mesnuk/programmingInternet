@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $ (Document).ready(function() {
+            let $text = $('#hide_text') ;
+            $text.hide() ;
+            $ ('.button').click(function() {
+                $text.show(200) ;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1> Контент сторінки </h1>
+    <a href = "#" class = "button"> Натисніть, щоб показати текст </a>
+    <div id = "hide_text"> Демонстраційний прихований текст </div>
+    <ul>
+        <li><a href="./2.html">2</a></li>
+        <li><a href="./3.1.html">3</a></li>
+        <li><a href="./3.2.html">4</a></li>
+        <li><a href="./3.3.html">5</a></li>
+        <li><a href="./3.4.html">6</a></li>
+    </ul>
+
+
+</body>
+</html>

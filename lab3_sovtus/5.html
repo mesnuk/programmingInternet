@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+    <div id="example"></div>
+    <input type="number" id="result">
+    <button id="attempt">try</button>
+
+    <script>
+        const exampleDiv = document.body.querySelector('#example');
+        const inputResult = document.body.querySelector('#result');
+        const btnAttempt = document.body.querySelector('#attempt');
+        let attempt = generateExample();
+        exampleDiv.innerHTML = `${attempt.first} * ${attempt.second} `;
+        let results = [];
+
+        function generate() {
+            return Math.floor(Math.random() * 9) + 1;
+        }
+        function generateExample() {
+            return {
+                first : generate(),
+                second : generate(),
+                result : function () {
+                    return this.first * this.second;
+                }
+            }
+        }
+        function startTest(attempt,start = 0) {
+            if(start === 9){
+                alert(`Результат - ${results.filter((a) => a === true).length * 10}%`);
+                results = [];
+                return;
+            }
+            const res = +inputResult.value;
+            if(attempt.result() === res) {
+                return true;
+            }
+            return false;
+
+        }
+        btnAttempt.addEventListener('click', () => {
+
+            exampleDiv.innerHTML = `${attempt.first} * ${attempt.second} `;
+            results.push(startTest(attempt, results.length));
+            attempt = generateExample();
+            exampleDiv.innerHTML = `${attempt.first} * ${attempt.second} `;
+        });
+
+    </script>
+</body>
+</html>

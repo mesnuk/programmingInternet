@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+
+<script>
+    const timer = document.createElement('div');
+    function check(time) {
+        if(time < 10) return time = '0' + time;
+        return time;
+    }
+    window.addEventListener("load", setInterval( () => {
+        const time = new Date();
+        timer.innerHTML = `${check(time.getFullYear())}-${check(time.getMonth()+1)}-${check(time.getDate())}-${check(time.getHours())}-${check(time.getMinutes())}-${check(time.getSeconds())}`;
+        document.body.appendChild(timer);
+    },1000))
+
+</script>
+</body>
+</html>

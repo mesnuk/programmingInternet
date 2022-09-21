@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<body>
+    <h1>Крути Федишин</h1>
+    <button class="set" id="prev">Prev</button>
+    <button class="set" id="next">Next</button>
+
+    <script>
+        let iter = 1;
+        const next = document.body.querySelector('#next');
+        const prev = document.body.querySelector('#prev');
+
+        let image = document.createElement('img');
+        image.style.width = '200px';
+        image.style.height = '250px';
+
+        function getImages(path, iterations) {
+            let photos = [];
+            for (let i = 1; i <= iterations; ++i) {
+                photos.push(`${path}/${i}.jpg`);
+            }
+            return photos;
+        }
+
+        const images = getImages('./img', 4);
+
+        next.addEventListener('click', () => {
+            if(iter >= images.length) iter = 0;
+            image.src = images[iter++];
+        });
+        prev.addEventListener('click', () => {
+            if(iter < 1) iter = 4;
+            image.src = images[--iter];
+        });
+
+        document.body.prepend(image);
+    </script>
+</body>
+</html>

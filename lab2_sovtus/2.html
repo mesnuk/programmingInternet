@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+    <style>
+        .calc {
+            width: 400px;
+            height: 600px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            margin:auto;
+        }
+        #calc-field {
+            font-size: 32px;
+            text-align: center;
+            grid-column: 1/3;
+        }
+        #clear, #submit{
+            font-size: 32px;
+        }
+        #clear {
+            grid-column: 3/4;
+        }
+        #submit {
+            grid-row: 7/8;
+            grid-column: 1/4;
+        }
+        .number-button, .sign-button {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .number-button {
+            color: #ff0000;
+        }
+        .sign-button {
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <form class="calc" onsubmit="return false">
+        <input name="calc-field" type="text" readonly id="calc-field">
+        <input type="reset" id="clear" value="RESET">
+
+        <button class="number-button" value="1">1</button>
+        <button class="number-button" value="2">2</button>
+        <button class="number-button" value="3">3</button>
+        <button class="number-button" value="4">4</button>
+        <button class="number-button" value="5">5</button>
+        <button class="number-button" value="6">6</button>
+        <button class="number-button" value="7">7</button>
+        <button class="number-button" value="8">8</button>
+        <button class="number-button" value="9">9</button>
+        <button class="number-button" value="0">0</button>
+
+        <button class="sign-button" value="+">+</button>
+        <button class="sign-button" value="-">-</button>
+        <button class="sign-button" value="*">*</button>
+        <button class="sign-button" value="/">/</button>
+        <button class="sign-button" value="**">pow</button>
+
+        <input type="submit" value="ENTER" id="submit" onclick="finish()">
+
+    </form>
+    <script>
+        const field = document.querySelector('#calc-field');
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                field.value += Number.isFinite(+btn.value) ? btn.value : ` ${btn.value} `;
+            })
+        });
+        function finish() {
+            field.value = eval(field.value);
+        }
+
+    </script>
+</body>
+</html>

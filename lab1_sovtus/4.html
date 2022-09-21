@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<body>
+    <form>
+        x<input type="number" value="1"><br>
+        y<input type="number" value="2"><br>
+        <button onClick = "calc()">Розрахувати</button>
+    </form>
+
+
+    <script>
+        function calc() {
+            const [x, y]= Array.from(document.getElementsByTagName("input")).map(el => +el.value);
+            alert( (x*y > 0) ? 3*x*y - x : (7*x > 2*y || y > 2) ? 2*x - (3*y / x) : x - y);
+        }
+    </script>
+</body>
+</html>
