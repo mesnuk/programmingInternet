@@ -18,27 +18,28 @@
         let arrayForSum = [];
 
         function generateTable (col, row){
+            arrayForSum = [];
             let string = '';
             for (let i = 0; i < row;++i) {
                 string += '\n<tr>';
                 for (let j = 0; j < col; ++j) {
-                    const value = 5*i + 3*j;
-                    if(i === j) arrayForSum.push(value);
+                    const value = 2*i - j;
+                    if(col-1 === j) arrayForSum.push(value);
                     string += '<td class="foo">' + value + '<\/td>'
                 }
                 string += '\n<\/tr>';
             }
             return string;
         }
-
+        const table = document.createElement('table');
         build.addEventListener('click', () => {
-            const table = document.createElement('table');
+
             table.innerHTML = generateTable(row.value, col.value);
             document.body.appendChild(table);
         } );
 
         evaluate.addEventListener('click', () => {
-            alert(arrayForSum.reduce((sum, el) => sum + el));
+            alert(arrayForSum.reduce((sum, el) => sum * el));
         } );
     </script>
 </body>

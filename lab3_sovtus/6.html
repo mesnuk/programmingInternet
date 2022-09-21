@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .show {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="showButton">show fruits</button>
+    <ul class="show">
+        <li>apple</li>
+        <li>pineapple</li>
+        <li>appricot</li>
+        <li>pear</li>
+        <li>lemon</li>
+    </ul>
+    <button class="showButton">show vegetables</button>
+    <ul class="show">
+        <li>potatoes</li>
+        <li>beetroot</li>
+        <li>carrots</li>
+        <li>pear</li>
+    </ul>
+
+    <script>
+        const [buttonFruits, buttonVegetabes] = document.body.querySelectorAll('.showButton');
+        const [ulFruits, ulVegetabes] = document.body.querySelectorAll('ul');
+
+
+        buttonFruits.addEventListener('click', () => ulFruits.classList.toggle('show'));
+        buttonVegetabes.addEventListener('click', () => ulVegetabes.classList.toggle('show'));
+
+
+
+
+    </script>
+</body>
+</html>

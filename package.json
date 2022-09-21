@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "run"
+    "test": "run",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mesnuk/programmingInternet/issues"
   },
-  "homepage": "https://github.com/mesnuk/programmingInternet#readme"
+  "homepage": "https://github.com/mesnuk/programmingInternet#readme",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
