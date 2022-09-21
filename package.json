@@ -1,0 +1,19 @@
+{
+  "name": "proggraming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesnuk/programmingInternet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mesnuk/programmingInternet/issues"
+  },
+  "homepage": "https://github.com/mesnuk/programmingInternet#readme"
+}
