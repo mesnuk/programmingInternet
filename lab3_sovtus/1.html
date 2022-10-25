@@ -38,14 +38,14 @@
 
     <script>
 
-        const enterButton = document.body.querySelector('#enter');
+        const inputs = document.body.querySelectorAll('input');
 
-        enterButton.addEventListener('click',() => {
+        inputs.forEach(el => el.addEventListener('change',() => {
            const Rectangle = Array.from(document.body.querySelectorAll('.input-Rectangle'), el => +el.value);
            document.body.querySelector('#Perimeter').innerHTML = 2 * Rectangle.reduce((sum, el) => sum + el,0);
            document.body.querySelector('#Square').innerHTML = Rectangle[0] * Rectangle[1];
            document.body.querySelector('#Diagonal').innerHTML = Math.sqrt(Rectangle[0]**2 + Rectangle[1]**2);
-        });
+        }));
     </script>
 </body>
 </html>
