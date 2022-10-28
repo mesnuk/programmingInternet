@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+	<style>
+		* {
+			font-size: 25px;
+		}
+		.work3{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		.exampleTest{
+			width: 25%;
+		}
+		.exampleTest img {
+			width: 100%;
+			height: 100%;
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			margin: 10px 5px;
+		}
+		.hovering {
+			background: #55ff99;
+			color: #b22222;
+		}
+		.scale {
+			transform: scale(1.1);
+		}
+		.show {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<table class="work3">
+		<tr>
+			<th colspan="4">Мої одногрупники</th>
+		</tr>
+		<tr class="images">
+			<td class="exampleTest"><img src="images/myk.jpg"  ></td>
+			<td class="exampleTest"><img src="images/giga.jpg" ></td>
+			<td class="exampleTest"><img src="images/yaremchuk.jpg"></td>
+			<td class="exampleTest"><img src="images/Skr_tango.jpg"></td>
+		</tr>
+
+		<tr class="names">
+			<th class="exampleTest name">Андрій Миколайчук</th>
+			<th class="exampleTest name">Степан Гіга</th>
+			<th class="exampleTest name">Назарій Яремчук</th>
+			<th class="exampleTest name">Андрій Кузьменко</th>
+		</tr>
+		<tr class="biography">
+			<th class="exampleTest"><article class="show">Автор і виконавець популярних пісень «Піду втоплюся», «Підпільник Кіндрат»,</article> </th>
+			<th class="exampleTest"><article class="show">Член Національної ліги композиторів України.</article> </th>
+			<th class="exampleTest"><article class="show">Герой України</article> </th>
+			<th class="exampleTest"><article class="show">Герой України. Заслужений артист Автономної Республіки Крим.</article> </th>
+		</tr>
+
+	</table>
+
+	<script>
+		const images = document.querySelectorAll(".exampleTest img");
+		const names = document.querySelectorAll('.name');
+		const bios = document.querySelectorAll('.biography th article');
+		names.forEach((el) => el.addEventListener('click', e => handleClick(e)))
+		images.forEach((el) => el.addEventListener('click', e => handleClick(e)))
+
+		const handleClick = e => {
+			if(e.target.classList.contains('name')){
+				console.log(names)
+				const index = Array.from(names).indexOf(e.target);
+				images[index].classList.toggle('scale')
+				names[index].classList.toggle('hovering');
+				bios[index].classList.toggle('show');
+			}else {
+				const index = Array.from(images).indexOf(e.target);
+				images[index].classList.toggle('scale')
+				names[index].classList.toggle('hovering');
+				bios[index].classList.toggle('show');
+			}
+
+		}
+
+
+	</script>
+</body>
+</html>
