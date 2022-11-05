@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+    each()
+    <ul>
+        <li class="list1">Ex1</li>
+        <li class="list">Ex2</li>
+        <li class="list1">Ex3</li>
+    </ul>
+    <button id="button1">Ex each</button>
+    <hr>
+    <p>jQuery is aRray</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('#button1').click(() => {
+            $("li").each(function() {
+                alert($(this).text())
+            });
+        });
+        $( "p" ).append( "" + $.isArray("{}"));
+
+    </script>
+</body>
+</html>

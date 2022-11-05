@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+<hr><br>
+<h1>.slideToggle()</h1>
+<p class="paragraphFirst">par11</p>
+<button class="buttonFirst">show/hide</button>
+
+
+<h1>.fadeToggle()</h1>
+<p class="paragraphSecond">parag 2</p>
+<button class="buttonSecond">Тест 2</button>
+
+<br><br><hr><br>
+
+<h1 >.hide(); .show()</h1>
+<p class="paragraphThird">parag 3</p>
+<button class="btn31">hide</button>
+<button class="btn3_2">show</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('.buttonFirst').click(() => {
+        $('.paragraphFirst').slideToggle();
+    });
+    $('.buttonSecond').click(() => {
+        $('.paragraphSecond').fadeToggle();
+    });
+    $('.btn31').click(() => {
+        $('.paragraphThird').hide();
+    });
+    $('.btn32').click(() => {
+        $('.paragraphThird').show();
+    });
+</script>
+</body>
+</html>

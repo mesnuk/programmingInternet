@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+    <p id="wrapInner">wrapInner()</p>
+    <p id="replaceWith">.replaceWith()</p>
+    <p id="width">width()</p>
+    <p id="position">position()</p>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $('#wrapInner').wrapInner(function(index){
+            return '<strong/>';
+        });
+        $('#replaceWith').click(function () {
+            $(this).replaceWith("<strong>" + $(this).text() + "</strong>");
+        });
+        $("#width").click(function () {
+            alert($(this).width()) ;
+        });
+        const position = $('#position').position();
+        alert( "left: " + position.left + ", top: " + position.top );
+
+
+    </script>
+</body>
+</html>

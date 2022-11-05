@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+    <button class="btn">.first()()</button>
+    <button class="btn" id="parent">.parent()</button>
+    <button class="btn" id="children">.children()</button>
+    <button class="btn" id="last">.last()</button>
+    <button class="btn" id="prev">.prev()</button>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const btns = $('.btn')
+        btns.first().click(() => {
+            btns.first().css('color', 'red')
+        })
+        $('#parent').click(() => {
+            btns.parent().css('background', 'gray')
+        })
+        $('#children').click(() => {
+            $('body').children().css('color', 'red')
+        })
+        $('#last').click(() => {
+            btns.last().css('color', 'green')
+        })
+        $('#prev').click(() => {
+            btns.last().prev().css('color', 'green')
+        })
+    </script>
+</body>
+</html>
